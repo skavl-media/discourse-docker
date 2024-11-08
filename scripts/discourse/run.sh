@@ -34,14 +34,7 @@ if [[ -n "$DISCOURSE_PASSENGER_EXTRA_FLAGS" ]]; then
 fi
 
 
-# info "** Strarting sidekiq **"
-
-# # Start Sidekiq
-# START_CMD=(
-#     "bundle" "exec" "sidekiq"
-#     "-q" "critical" "-q" "low" "-q" "default" "-q" "ultra_low" # Queues; the order is important
-#     "-e" "$DISCOURSE_ENV"
-# )
+info "** Strarting sidekiq **"
 
 nohup /opt/bitnami/scripts/discourse-sidekiq/run.sh &
 
