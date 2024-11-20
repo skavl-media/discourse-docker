@@ -273,6 +273,12 @@ discourse_create_conf_file() {
     if ! is_empty_value "$DISCOURSE_SERVE_STATIC_ASSETS"; then
         discourse_conf_set "serve_static_assets" "$DISCOURSE_SERVE_STATIC_ASSETS"
     fi
+
+    discourse_conf_set "max_reqs_per_ip_per_minute" 10000
+    discourse_conf_set "max_reqs_per_ip_per_10_seconds" 2000
+    discourse_conf_set "max_asset_reqs_per_ip_per_10_seconds" 2000
+    discourse_conf_set "max_reqs_per_ip_mode" "$DISCOURSE_MAX_REQS_PER_IP_MODE"
+
     # Extra configuration
     ! is_empty_value "$DISCOURSE_EXTRA_CONF_CONTENT" && echo "$DISCOURSE_EXTRA_CONF_CONTENT" >> "$DISCOURSE_CONF_FILE"
 }
