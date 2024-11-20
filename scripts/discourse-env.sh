@@ -24,6 +24,8 @@ export BITNAMI_DEBUG="${BITNAMI_DEBUG:-false}"
 # By setting an environment variable matching *_FILE to a file path, the prefixed environment
 # variable will be overridden with the value specified in that file
 discourse_env_vars=(
+    UNICORN_WORKERS
+    DISCOURSE_MAX_REQS_PER_IP_MODE
     DISCOURSE_SERVE_STATIC_ASSETS
     DISCOURSE_DATA_TO_PERSIST
     DISCOURSE_ENABLE_HTTPS
@@ -127,6 +129,8 @@ export DISCOURSE_ENABLE_CONF_PERSISTENCE="${DISCOURSE_ENABLE_CONF_PERSISTENCE:-n
 export DISCOURSE_EXTRA_CONF_CONTENT="${DISCOURSE_EXTRA_CONF_CONTENT:-yes}"
 export DISCOURSE_PASSENGER_SPAWN_METHOD="${DISCOURSE_PASSENGER_SPAWN_METHOD:-direct}"
 export DISCOURSE_PASSENGER_EXTRA_FLAGS="${DISCOURSE_PASSENGER_EXTRA_FLAGS:-}"
+export DISCOURSE_MAX_REQS_PER_IP_MODE="${DISCOURSE_MAX_REQS_PER_IP_MODE:-none}"
+export UNICORN_WORKERS="${UNICORN_WORKERS:-4}"
 
 # Discourse credentials
 export DISCOURSE_USERNAME="${DISCOURSE_USERNAME:-user}" # only used during the first initialization
